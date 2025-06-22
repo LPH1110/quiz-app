@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register - Quizzle</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='register.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="logo">Quizzle</div>
+      </header>
+      <main>
+        <h2>Register</h2>
+        <form action="/register" method="POST">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              required
+              minlength="3"
+              pattern="[a-zA-Z0-9]+"
+              placeholder="Enter your username"
+            />
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              required
+              minlength="6"
+              placeholder="Enter your password"
+            />
+          </div>
+          {% if error_msg %}
+          <p class="error">{{ error_msg }}</p>
+          {% endif %}
+          <button type="submit">Register</button>
+        </form>
+        <p class="footer">
+          Already have an account? <a href="/login">Login</a>
+        </p>
+      </main>
+    </div>
+  </body>
+</html>

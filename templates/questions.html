@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quizzle - Quiz Questions</title>
+    <!-- <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='questions.css') }}"
+    /> -->
+    <link rel="stylesheet" href="../static/questions.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Programming Quiz</h1>
+      <p>Answer the questions below and submit to see your results.</p>
+    </header>
+    <main>
+      <div class="question-container">
+        <form method="post" action="/result">
+          {% if quiz_id %}
+          <input value="{{ quiz_id }}" name="quiz_id" id="quiz_id" hidden />
+          {% endif %} {% for question in questions %}
+          <div class="wrapper">
+            <h2>Question {{ loop.index }}: {{ question.title }}</h2>
+            {% for option in question.options %}
+            <div class="option">
+              <input
+                type="radio"
+                name="question_{{ question.id }}"
+                id="option_{{question.id}}_{{loop.index}}"
+                value="{{ option }}"
+              />
+              <label for="option_{{question.id}}_{{loop.index}}"
+                >{{ option }}</label
+              >
+            </div>
+            {% endfor %}
+          </div>
+          {% endfor %}
+          <button type="submit">Submit Quiz</button>
+        </form>
+      </div>
+    </main>
+  </body>
+</html>

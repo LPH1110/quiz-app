@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quizzle - Choose Your Topic</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='quizzes.css') }}"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>Quizzle</h1>
+      <p>Select a topic to start your quiz!</p>
+    </header>
+    <main>
+      <div class="topics-container">
+        {% for quiz_id, title, description in quizzes %}
+        <a href="/questions?quiz_id={{ quiz_id }}" class="topic-card">
+          <h2>{{ title }}</h2>
+          <p>{{ description }}</p>
+        </a>
+        {% endfor %}
+      </div>
+    </main>
+  </body>
+</html>

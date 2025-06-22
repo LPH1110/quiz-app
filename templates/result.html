@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quizzle - Quiz Results</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='result.css') }}"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>Your Quiz Results</h1>
+      <p>Here's how you did on the Programming Quiz!</p>
+    </header>
+    <main>
+      <div class="results-container">
+        {% if score, total_q, ratio %}
+        <h2>Score: {{ score }}/{{ total_q }}</h2>
+        {% if ratio >= 75 %}
+        <p>Congratulations! You have a strong grasp of programming concepts.</p>
+        {% else %}
+        <p>Too bad!</p>
+        {% endif %}
+        <div
+          style="background: conic-gradient(#6b48ff 0% {{ratio}}%, #ddd 0% 100%);"
+          class="score-circle"
+        >
+          <span>{{ ratio }}</span>
+        </div>
+        <a href="/quizzes" class="retry-button">Try Another Quiz</a>
+        {% else %}
+        <p>No data found</p>
+        {% endif %}
+      </div>
+    </main>
+  </body>
+</html>

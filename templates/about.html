@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About - Quizzle</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='about.css') }}"
+    />
+  </head>
+  <body>
+    <header>
+      <a href="/" class="logo">Quizzle</a>
+      <nav>
+        <a href="/">Back to home</a>
+      </nav>
+    </header>
+    <main>
+      <section class="about-section">
+        <div class="thumbnail">
+          <img src="/static/profile.jpg" alt="Eddy's Profile Picture" />
+        </div>
+        <div class="about-content">
+          <h1>About Me</h1>
+          <p>
+            Hi, I'm Eddy, a dedicated computer science student with a passion
+            for Python programming. I'm currently studying at [Your University
+            Name], where I'm building expertise in software development, web
+            applications, and data science. Quizzle is my creation to make
+            learning fun and interactive for students and coding enthusiasts
+            alike.
+          </p>
+          <p>
+            My Python journey began with mastering the fundamentals, and now I'm
+            diving into frameworks like Flask (powering this app!), Django, and
+            libraries such as Pandas and NumPy for data analysis. I enjoy
+            crafting projects that blend creativity with technical
+            problem-solving, and I'm excited to explore backend development,
+            APIs, and database systems further.
+          </p>
+          <p>
+            Outside of coding, I love tackling coding challenges, reading tech
+            blogs, and contributing to open-source projects. Explore Quizzle and
+            test your knowledge!
+          </p>
+          <div class="skills">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Flask</span>
+            <span class="skill-tag">SQLite</span>
+            <span class="skill-tag">HTML/CSS</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">Data Science</span>
+          </div>
+          <div class="contact">
+            <h2>Contact Me</h2>
+            <p>
+              <a href="mailto:eddy@example.com">Email: eddy@example.com</a> |
+              <a href="https://github.com/eddy-python" target="_blank"
+                >GitHub</a
+              >
+              |
+              <a href="https://linkedin.com/in/eddy-python" target="_blank"
+                >LinkedIn</a
+              >
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

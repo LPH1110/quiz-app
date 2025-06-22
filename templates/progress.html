@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Progress - Quizzle</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='progress.css') }}"
+    />
+  </head>
+  <body>
+    <header>
+      <a href="/" class="logo">Quizzle</a>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        {% if 'username' in session %}
+        <a href="/logout">Logout</a>
+        {% else %}
+        <a href="/login">Login</a>
+        {% endif %}
+      </nav>
+    </header>
+    <main>
+      <section class="progress-section">
+        <h1>Your Quiz Progress</h1>
+        {% if attempts %}
+        <div class="attempts-list">
+          {% for attempt_id, quiz_id, quiz_title, question_id, selected_answer,
+          score, timestamp in attempts %}
+          <div class="attempt-card">
+            <p><strong>Quiz:</strong> {{ quiz_title }}</p>
+            <p><strong>Question ID:</strong> {{ question_id }}</p>
+            <p><strong>Selected Answer:</strong> {{ selected_answer }}</p>
+            <p>
+              <strong>Result:</strong>
+              {% if score == 1 %}
+              <span class="correct">Correct</span>
+              {% else %}
+              <span class="incorrect">Incorrect</span>
+              {% endif %}
+            </p>
+            <p><strong>Attempt Time:</strong> {{ timestamp }}</p>
+          </div>
+          {% endfor %}
+        </div>
+        {% else %}
+        <p>No quiz attempts found. Take a quiz to see your progress!</p>
+        {% endif %}
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,104 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: linear-gradient(135deg, #6b48ff, #00ddeb);
+  min-height: 100vh;
+  color: #fff;
+}
+header {
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 15px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  backdrop-filter: blur(5px);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+  padding: 0 30px;
+  text-decoration: none;
+}
+nav {
+  display: flex;
+  gap: 20px;
+  padding: 0 30px;
+}
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.2s;
+}
+nav a:hover {
+  color: #e0e0e0;
+}
+main {
+  max-width: 900px;
+  margin: 100px auto 40px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+.progress-section {
+  text-align: center;
+}
+.progress-section h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+.attempts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.attempt-card {
+  background-color: #fff;
+  color: #333;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  text-align: left;
+}
+.attempt-card p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+.attempt-card .correct {
+  color: #28a745;
+  font-weight: bold;
+}
+.attempt-card .incorrect {
+  color: #dc3545;
+  font-weight: bold;
+}
+@media (max-width: 768px) {
+  main {
+    margin: 80px 15px 20px;
+    padding: 15px;
+  }
+  .progress-section h1 {
+    font-size: 28px;
+  }
+  .attempt-card p {
+    font-size: 12px;
+  }
+  header {
+    padding: 10px 15px;
+  }
+  .logo {
+    font-size: 20px;
+  }
+  nav a {
+    font-size: 14px;
+    margin-left: 10px;
+  }
+}
